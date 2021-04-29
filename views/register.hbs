@@ -1,0 +1,39 @@
+<div class='position-absolute top-50 start-50 translate-middle'>
+    <div class='card text-center rounded-3 shadow-lg'>
+        <form class="form-floating" action='/register' method='POST'>
+            <div class='card-body'>
+                <h1 class='card-title'> Register </h1> 
+                <p class="card-subtitle"> Please fill in this form to create an account. </p>
+            
+                <hr>
+
+                <div class="col-12">
+                    <label for='firstName' class="form-label"><strong>First Name</strong></label>
+                    <input class="form-control" id='firstName' type='text' placeholder='Enter First Name' name='firstName' required>
+
+                    <label for='lastName' class="form-label"><strong>Last Name</strong></label>
+                    <input class="form-control" id='lastName' type='text' placeholder='Enter Last Name' name='lastName' required>
+
+                    <label for='email' class="form-label"><strong>Email</strong></label>
+                    <input class="form-control" id='email' type='email' placeholder='Enter Email' name='email' required>
+
+                    <label for='psw' class="form-label"><strong>Password</strong></label>
+                    <input class="form-control" id='psw' type='password' placeholder='Enter Password' name='password' required>
+
+                    <label for='psw-repeat' class="form-label"><strong>Repeat Password</strong></label>
+                    <input class="form-control" id='psw-repeat' type='password' placeholder='Repeat Password' name='psw-repeat' required>
+                </div>
+
+                <hr>
+
+                <p class="card-text"> By creating an account you agree to signup for reminders about upcoming launches. </p>
+                <button class='btn btn-primary btn-lg col-6' type='submit'>Register</button>
+            </div>
+
+            <div>
+                <p><strong>Already have an account?</strong></p>
+                <a href='/login' class="btn btn-secondary btn-sm"> Sign In</a>
+            </div>
+        </form>
+    </div>
+</div>

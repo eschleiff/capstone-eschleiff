@@ -1,0 +1,58 @@
+<div class="position-absolute top-50 start-50 translate-middle text-center">
+    <h2>Hi, {{ name }}</h2>
+    <div class="card bg-dark text-white">
+        <img src="https://i.imgur.com/RFNX387.jpeg" class="card-img" alt="SpaceX Launch">
+        <div class="card-img-overlay d-flex">
+            <div class="align-self-center mx-auto">
+                <p id='launchDate' hidden>{{date}}</p>
+                <div class="row">
+                    <div id="countdown-days" class="col-sm display-2"></div>
+                    <span class="col-sm display-2">:</span>
+                    <div id="countdown-hours" class="col-sm display-2"></div>
+                    <span class="col-sm display-2">:</span>
+                    <div id="countdown-minutes" class="col-sm display-2"></div>
+                    <span class="col-sm display-2">:</span>
+                    <div id="countdown-seconds" class="col-sm display-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">Days</div>
+                    <div class="col">Hours</div>
+                    <div class="col">Minutes</div>
+                    <div class="col">Seconds</div>
+                </div>
+                <div class="pt-5">
+                    <a href="/currentinfo" class="btn btn-outline-light">Learn More</a>
+                </div>
+                <script>
+                    let time = (document.getElementById('launchDate').innerHTML);
+                    let countDownDate = new Date(time).getTime();
+                    let x = setInterval( () => {
+                        let now = new Date().getTime();
+                        let timeLeft = countDownDate - now;
+                        let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                        let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        document.getElementById('countdown-days').innerHTML = days;
+                        document.getElementById('countdown-hours').innerHTML = hours;
+                        document.getElementById('countdown-minutes').innerHTML = minutes;
+                        document.getElementById('countdown-seconds').innerHTML = seconds;
+
+                        if (timeLeft < 0) {
+                            clearInterval(x);
+                            document.getElementById('countdown').innerHTML = "EXPIRED";
+                        }
+                    }, 1000);
+                </script>
+            </div>
+        </div>
+    </div>
+    <h1 class="display-1" style="color: lightgrey;"> Welcome to SpaceX </h1>
+    <hr style="color: lightgrey;">
+    <a href="/upcoming" class="btn btn-light">Upcoming Launches</a>
+    <a href="/register" class="btn btn-light">Register</a>
+    <a href="/logout" class="btn btn-danger">Logout</a>
+    <hr>
+    <a href="/profile" class="btn btn-outline-info">Update Profile</a>   
+</div>
+
